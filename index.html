@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="This paper presents a novel method for exerting fine-grained lighting control during text-driven diffusion-based image generation. We demonstrate our lighting controlled diffusion model on a variety of text-prompt-generated images and under different types of lighting, ranging from point lights to environment lighting.">
+  <meta name="keywords" content="NRHints, Relightable NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiLightNet: Fine-grained Lighting Control for Diffusion-based Image Generation</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P5TW3NKDFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-P5TW3NKDFW');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DiLightNet: Fine-grained Lighting Control for Diffusion-based Image Generation
+            </h1>
+            <h2 class="subtitle is-size-4 publication-venue">SIGGRAPH 2024</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.chong-zeng.com/">Chong Zeng</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://yuedong.shading.me/">Yue Dong</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.cs.wm.edu/~ppeers/">Pieter Peers</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://github.com/DQSSSSS">Youkang Kong</a><sup>4,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://svbrdf.github.io/">Hongzhi Wu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.microsoft.com/en-us/research/people/xtong/">Xin Tong</a><sup>2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>State Key Lab of CAD and CG, Zhejiang University</span>
+              <span class="author-block"><sup>2</sup>Microsoft Research Asia</span>
+              <span class="author-block"><sup>3</sup>College of William & Mary</span>
+              <span class="author-block"><sup>4</sup>Tsinghua University</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2402.11929" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./imgs/teaser.png" />
+        <h2 class="subtitle has-text-centered">
+          Examples of generated images specified via a text-prompt (listed below each example) and with fine-grained lighting control. Each prompt is plausibly visualized under two different user-provided lighting environments.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              This paper presents a novel method for exerting fine-grained lighting control during text-driven diffusion-based image generation. While existing diffusion models already have the ability to generate images under any lighting condition, without additional guidance these models tend to correlate image content and lighting. Moreover, text prompts lack the necessary expressional power to describe detailed lighting setups. To provide the content creator with fine-grained control over the lighting during image generation, we augment the text-prompt with detailed lighting information in the form of radiance hints, i.e., visualizations of the scene geometry with a homogeneous canonical material under the target lighting. However, the scene geometry needed to produce the radiance hints is unknown. Our key observation is that we only need to guide the diffusion process, hence exact radiance hints are not necessary; we only need to point the diffusion model in the right direction. Based on this observation, we introduce a three stage method for controlling the lighting during image generation. In the first stage, we leverage a standard pretrained diffusion model to generate a provisional image under uncontrolled lighting. Next, in the second stage, we resynthesize and refine the foreground object in the generated image by passing the target lighting to a refined diffusion model, named DiLightNet, using radiance hints computed on a coarse shape of the foreground object inferred from the provisional image. To retain the texture details, we multiply the radiance hints with a neural encoding of the provisional synthesized image before passing it to DiLightNet. Finally, in the third stage, we resynthesize the background to be consistent with the lighting on the foreground object. We demonstrate and validate our lighting controlled diffusion model on a variety of text prompts and lighting conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img src="./imgs/overview.png" />
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+          <iframe src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Synthetic Results</h2>
+        <p></p>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Complex_Ball_Simple01_Mod_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Complex Ball
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Basket_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Basket
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/FurBall_Plane_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Fur Ball
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Cup_Plane_Metal_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Metallic Cup & Plane
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Cup_Plane_Metal_Aniso_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Anisotropic Metal
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Cup_Plane_SSS_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Translucent
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Drums_Plane_V2_PL_500_Scaled.mp4" type="video/mp4">
+              </video>
+              <p>
+                Drums
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Hotdog_Mod_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Hotdog
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Lego_Mod_PL_500.mp4" type="video/mp4">
+              </video>
+              <p>
+                Lego
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Real Captured Results</h2>
+        <p></p>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/CatSmall_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Cat on Decor
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/CupFabric_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Cup & Fabric
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Pikachu_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Pikachu Statuette
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Fish_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Ornamental Fish
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/FurScene_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Cluttered Scene
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/Pixiu_PL.mp4" type="video/mp4">
+              </video>
+              <p>
+                Pixiu Statuette
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings {zeng2024dilightnet,
+    title      = {DiLightNet: Fine-grained Lighting Control for Diffusion-based Image Generation},
+    author     = {Chong Zeng and Yue Dong and Pieter Peers and Youkang Kong and Hongzhi Wu and Xin Tong},
+    booktitle  = {ACM SIGGRAPH 2024 Conference Proceedings},
+    year       = {2024}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is constructed using the source code provided by <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and we are grateful for their template.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
