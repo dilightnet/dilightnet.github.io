@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="description"
     content="This paper presents a novel method for exerting fine-grained lighting control during text-driven diffusion-based image generation. We demonstrate our lighting controlled diffusion model on a variety of text-prompt-generated images and under different types of lighting, ranging from point lights to environment lighting.">
-  <meta name="keywords" content="NRHints, Relightable NeRF, NeRF">
+  <meta name="keywords" content="DiLightNet, Diffusion, Image Synthesis, Lighting Control, Radiance Hints">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DiLightNet: Fine-grained Lighting Control for Diffusion-based Image Generation</title>
 
@@ -37,7 +37,7 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-body">
+    <div class="">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
@@ -81,8 +81,15 @@
                     <span>arXiv</span>
                   </a>
                 </span>
+                <span class="link-block">
+                  <a href="https://github.com/iamNCJ/DiLightNet" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code & Weights (Coming Soon...)</span>
+                  </a>
+                </span>
               </div>
-
             </div>
           </div>
         </div>
@@ -93,7 +100,11 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./imgs/teaser.png" />
+        <!-- <img src="./imgs/teaser.png" /> -->
+        <video width="100%" muted loop autoplay="true">
+          <source src="./imgs/teaser-mq.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
         <h2 class="subtitle has-text-centered">
           Examples of generated images specified via a text-prompt (listed below each example) and with fine-grained lighting control. Each prompt is plausibly visualized under two different user-provided lighting environments.
         </h2>
@@ -133,212 +144,13 @@
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Synthetic Results</h2>
+        <h2 class="title is-3">Video</h2>
         <p></p>
       </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Complex_Ball_Simple01_Mod_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Complex Ball
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Basket_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Basket
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/FurBall_Plane_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Fur Ball
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Cup_Plane_Metal_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Metallic Cup & Plane
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Cup_Plane_Metal_Aniso_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Anisotropic Metal
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Cup_Plane_SSS_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Translucent
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Drums_Plane_V2_PL_500_Scaled.mp4" type="video/mp4">
-              </video>
-              <p>
-                Drums
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Hotdog_Mod_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Hotdog
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Lego_Mod_PL_500.mp4" type="video/mp4">
-              </video>
-              <p>
-                Lego
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
-
-  <section class="section">
+    </div>
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Real Captured Results</h2>
-        <p></p>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/CatSmall_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Cat on Decor
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/CupFabric_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Cup & Fabric
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Pikachu_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Pikachu Statuette
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Fish_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Ornamental Fish
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/FurScene_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Cluttered Scene
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <video id="matting-video" autoplay controls muted loop playsinline height="100%">
-                <source src="./videos/Pixiu_PL.mp4" type="video/mp4">
-              </video>
-              <p>
-                Pixiu Statuette
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <iframe width="100%" height="512" padding-bottom="80%" src="https://www.youtube.com/embed/kMct_VeqvCk?si=6ncdUQjOCY5zVPH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
   </section>
 
   <section class="section" id="BibTeX">
