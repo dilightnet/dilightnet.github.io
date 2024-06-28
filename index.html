@@ -25,6 +25,13 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ea6200">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
 </head>
@@ -41,7 +48,9 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title" style="font-weight: 500;"><b style="font-weight: 1000;">DiLightNet</b>: Fine-grained Lighting Control for Diffusion-based Image Generation
+            <h1 class="title is-1 publication-title" style="font-weight: 500;"><b
+                style="font-weight: 1000;">DiLightNet</b>: Fine-grained Lighting Control for Diffusion-based Image
+              Generation
             </h1>
             <h2 class="subtitle is-size-4 publication-venue">SIGGRAPH 2024</h2>
             <div class="is-size-5 publication-authors">
@@ -90,7 +99,8 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="./pdfs/dilightnet-supplementary.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <a href="./pdfs/dilightnet-supplementary.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -107,7 +117,8 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/iamNCJ/DiLightNet" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/iamNCJ/DiLightNet"
+                    class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -131,7 +142,8 @@
           Your browser does not support the video tag.
         </video>
         <h2 class="subtitle has-text-centered">
-          Examples of generated images specified via a text-prompt (listed below each example) and with fine-grained lighting control. Each prompt is plausibly visualized under two different user-provided lighting environments.
+          Examples of generated images specified via a text-prompt (listed below each example) and with fine-grained
+          lighting control. Each prompt is plausibly visualized under two different user-provided lighting environments.
         </h2>
       </div>
     </div>
@@ -145,7 +157,25 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              This paper presents a novel method for exerting fine-grained lighting control during text-driven diffusion-based image generation. While existing diffusion models already have the ability to generate images under any lighting condition, without additional guidance these models tend to correlate image content and lighting. Moreover, text prompts lack the necessary expressional power to describe detailed lighting setups. To provide the content creator with fine-grained control over the lighting during image generation, we augment the text-prompt with detailed lighting information in the form of radiance hints, i.e., visualizations of the scene geometry with a homogeneous canonical material under the target lighting. However, the scene geometry needed to produce the radiance hints is unknown. Our key observation is that we only need to guide the diffusion process, hence exact radiance hints are not necessary; we only need to point the diffusion model in the right direction. Based on this observation, we introduce a three stage method for controlling the lighting during image generation. In the first stage, we leverage a standard pretrained diffusion model to generate a provisional image under uncontrolled lighting. Next, in the second stage, we resynthesize and refine the foreground object in the generated image by passing the target lighting to a refined diffusion model, named DiLightNet, using radiance hints computed on a coarse shape of the foreground object inferred from the provisional image. To retain the texture details, we multiply the radiance hints with a neural encoding of the provisional synthesized image before passing it to DiLightNet. Finally, in the third stage, we resynthesize the background to be consistent with the lighting on the foreground object. We demonstrate and validate our lighting controlled diffusion model on a variety of text prompts and lighting conditions.
+              This paper presents a novel method for exerting fine-grained lighting control during text-driven
+              diffusion-based image generation. While existing diffusion models already have the ability to generate
+              images under any lighting condition, without additional guidance these models tend to correlate image
+              content and lighting. Moreover, text prompts lack the necessary expressional power to describe detailed
+              lighting setups. To provide the content creator with fine-grained control over the lighting during image
+              generation, we augment the text-prompt with detailed lighting information in the form of radiance hints,
+              i.e., visualizations of the scene geometry with a homogeneous canonical material under the target
+              lighting. However, the scene geometry needed to produce the radiance hints is unknown. Our key observation
+              is that we only need to guide the diffusion process, hence exact radiance hints are not necessary; we only
+              need to point the diffusion model in the right direction. Based on this observation, we introduce a three
+              stage method for controlling the lighting during image generation. In the first stage, we leverage a
+              standard pretrained diffusion model to generate a provisional image under uncontrolled lighting. Next, in
+              the second stage, we resynthesize and refine the foreground object in the generated image by passing the
+              target lighting to a refined diffusion model, named DiLightNet, using radiance hints computed on a coarse
+              shape of the foreground object inferred from the provisional image. To retain the texture details, we
+              multiply the radiance hints with a neural encoding of the provisional synthesized image before passing it
+              to DiLightNet. Finally, in the third stage, we resynthesize the background to be consistent with the
+              lighting on the foreground object. We demonstrate and validate our lighting controlled diffusion model on
+              a variety of text prompts and lighting conditions.
             </p>
           </div>
         </div>
@@ -174,7 +204,10 @@
       </div>
     </div>
     <div class="container is-max-desktop">
-      <iframe width="100%" height="512" padding-bottom="80%" src="https://www.youtube.com/embed/kMct_VeqvCk?si=6ncdUQjOCY5zVPH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="100%" height="512" padding-bottom="80%"
+        src="https://www.youtube.com/embed/kMct_VeqvCk?si=6ncdUQjOCY5zVPH0" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </section>
 
