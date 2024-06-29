@@ -95,7 +95,7 @@
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Paper (High-res)</span>
+                    <span>Paper (High-Res)</span>
                   </a>
                 </span>
                 <span class="link-block">
@@ -104,7 +104,7 @@
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Supplementary (High-res)</span>
+                    <span>Supplementary (High-Res)</span>
                   </a>
                 </span>
                 </span>
@@ -116,13 +116,34 @@
                     <span>Poster</span>
                   </a>
                 </span>
+                <br>
                 <span class="link-block">
-                  <a href="https://github.com/iamNCJ/DiLightNet"
+                  <a href="https://huggingface.co/dilightnet/DiLightNet"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code & Weights (Coming Soon...)</span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/iamNCJ/DiLightNet"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"
+                        style="width: 1.25em; height: 1.25em;">
+                    </span>
+                    <span>Model</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/spaces/dilightnet/DiLightNet"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face"
+                        style="width: 1.25em; height: 1.25em;">
+                    </span>
+                    <span>Demo</span>
                   </a>
                 </span>
               </div>
@@ -182,24 +203,309 @@
       </div>
       <img src="./imgs/overview.png" />
       <!--/ Abstract. -->
-
-      <!-- Paper video. -->
-      <!-- <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video">
-          <iframe src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        </div>
-      </div> -->
-      <!--/ Paper video. -->
     </div>
   </section>
 
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Video</h2>
+        <h2 class="title is-3">Results</h2>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-4">Environmental Lighting</h2>
+        <p></p>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/3d_animation_charactermarket.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "3D animation character minimal art toy"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/elephant_uffizi.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "An elephant sculpted from plaster and the elephant nose is decorated with the golden texture"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/full_plate_armor_cave_0.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"full plate armor"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/leather_glove_market_0.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "leather glove"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/machine_dragon_desert_1.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "machine dragon robot in platinum"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/machine_dragon_kitchen.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"machine dragon robot in platinum"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/machine_dragon_desert_2.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "machine dragon robot in platinum"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/round_plate_galileo_1.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "a decorated plaster round plate with blue fine silk ribbon around it"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/round_plate_kitchen_0.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"a decorated plaster round plate with blue fine silk ribbon around it"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/rusty_copper_toy_frog_market2.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "rusty copper toy frog with spatially varying materials some parts are shinning other parts are rough"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/space_tank_city_night_0.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "steampunk space tank with delicate details"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/space_tank_city_night_1.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"steampunk space tank with delicate details"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/starcraft_gun_field_0.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "starcraft 2 marine machine gun"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/starcraft_gun_field_1.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "starcraft 2 marine machine gun"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/starcraft_gun_field_2.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"starcraft 2 marine machine gun"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/stone_griffin_park.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "stone griffin"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/full_plate_armor_cave_1.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "full plate armor"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/env_lighting/full_plate_armor_cave_2.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"full plate armor"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-4" style="padding-top: 20px;">Point Lighting</h2>
+        <p></p>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/point_lighting/candle_pl.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "a large colorful candle, high quality product photo"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/point_lighting/fountain_pl.mp4" type="video/mp4">
+              </video>
+              <p><i>
+                  "gorgeous ornate fountain made of marble"
+                </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="columns is-centered has-text-centered">
+            <div class="column content">
+              <video id="matting-video" autoplay muted loop playsinline height="100%">
+                <source src="./imgs/point_lighting/phoenix_pl.mp4" type="video/mp4">
+              </video>
+              <p>
+                <i>"rusty sculpture of a phoenix with its head more polished yet the wings are more rusty"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Supplementary Video</h2>
         <p></p>
       </div>
     </div>
@@ -222,7 +528,6 @@
 }</code></pre>
     </div>
   </section>
-
 
   <footer class="footer">
     <div class="container">
