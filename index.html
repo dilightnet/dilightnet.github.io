@@ -49,7 +49,6 @@
   </script>
   <script>
     function toggleCollapsible(element) {
-      console.log("clicked");
       element.classList.toggle("active");
       var content = element.nextElementSibling;
       if (content.style.maxHeight){
@@ -334,7 +333,7 @@
       <div class="column" onclick="toggleCollapsible(this)">
         <div class="columns is-centered has-text-centered">
           <a class="column content" style="font-size: larger; color: #155577; font-weight: bolder;">
-            ⇨ More Results ⇦
+            ⇨ Show More Results ⇦
           </a>
         </div>
       </div>
