@@ -47,6 +47,18 @@
       });
     });
   </script>
+  <script>
+    function toggleCollapsible(element) {
+      console.log("clicked");
+      element.classList.toggle("active");
+      var content = element.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -229,10 +241,10 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="results">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Main Results</h2>
         <p></p>
       </div>
     </div>
@@ -292,252 +304,7 @@
             </div>
           </div>
         </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/full_plate_armor_cave_0.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "full plate armor"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/leather_glove_market_0.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "leather glove"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/machine_dragon_desert_1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "machine dragon robot in platinum"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/machine_dragon_kitchen.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "machine dragon robot in platinum"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/machine_dragon_desert_2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "machine dragon robot in platinum"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/round_plate_galileo_1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "a decorated plaster round plate with blue fine silk ribbon around it"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/round_plate_kitchen_0.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "a decorated plaster round plate with blue fine silk ribbon around it"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/3d_animation_charactermarket.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "3D animation character minimal art toy"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/space_tank_city_night_0.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "steampunk space tank with delicate details"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/space_tank_city_night_1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "steampunk space tank with delicate details"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="columns is-centered has-text-centered">
         <div class="column">
           <div class="columns is-centered has-text-centered">
             <div class="column content">
@@ -562,126 +329,385 @@
           </div>
         </div>
 
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/starcraft_gun_field_1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "starcraft 2 marine machine gun"
-                  </i></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/starcraft_gun_field_2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "starcraft 2 marine machine gun"
-                  </i></p>
-              </div>
-            </div>
-          </div>
+      </div>
+
+      <div class="column" onclick="toggleCollapsible(this)">
+        <div class="columns is-centered has-text-centered">
+          <a class="column content" style="font-size: larger; color: #155577; font-weight: bolder;">
+            ⇨ More Results ⇦
+          </a>
         </div>
       </div>
 
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+      <div class="collapsible-content">
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                   </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/machine_dragon_desert_2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "machine dragon robot in platinum"
+                    </i></p>
                 </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/starcraft_gun_field_0.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "starcraft 2 marine machine gun"
-                  </i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/machine_dragon_desert_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "machine dragon robot in platinum"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/machine_dragon_kitchen.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "machine dragon robot in platinum"
+                    </i></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                   </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/leather_glove_market_0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "leather glove"
+                    </i></p>
                 </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/full_plate_armor_cave_1.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "full plate armor"
-                  </i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/round_plate_galileo_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "a decorated plaster round plate with blue fine silk ribbon around it"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/round_plate_kitchen_0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "a decorated plaster round plate with blue fine silk ribbon around it"
+                    </i></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="column">
-          <div class="columns is-centered has-text-centered">
-            <div class="column content">
-              <div class="video-wrapper">
-                <div class="loading-animation">
-                  <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                   </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/3d_animation_charactermarket.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "3D animation character minimal art toy"
+                    </i></p>
                 </div>
-                <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
-                  <source src="./imgs/env_lighting/full_plate_armor_cave_2.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p><i>
-                    "full plate armor"
-                  </i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/space_tank_city_night_0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "steampunk space tank with delicate details"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/space_tank_city_night_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "steampunk space tank with delicate details"
+                    </i></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/starcraft_gun_field_0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "starcraft 2 marine machine gun"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/starcraft_gun_field_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "starcraft 2 marine machine gun"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/starcraft_gun_field_2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "starcraft 2 marine machine gun"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/full_plate_armor_cave_0.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "full plate armor"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/full_plate_armor_cave_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "full plate armor"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="columns is-centered has-text-centered">
+              <div class="column content">
+                <div class="video-wrapper">
+                  <div class="loading-animation">
+                    <div class="lds-ellipsis">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <video class="video-content" id="matting-video" autoplay muted loop playsinline height="100%">
+                    <source src="./imgs/env_lighting/full_plate_armor_cave_2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <p><i>
+                      "full plate armor"
+                    </i></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
 
     <div class="container is-max-desktop">
@@ -772,7 +798,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="margin-top: -60px;">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <h2 class="title is-3">Appearance Prompts</h2>

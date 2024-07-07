@@ -244,3 +244,12 @@ body {
     transform: translate(24px, 0);
   }
 }
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsible-content {
+  /* padding: 0 18px; */
+  max-height: 0;
+  /* display: none; */
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
